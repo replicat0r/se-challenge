@@ -1,4 +1,26 @@
 <%= form_for @report do |f| %>
-  <%= f.file_field :file %>
-<%= f.submit "submit" %>
+    <%= f.file_field :file %>
+  <%= f.submit "submit" %>
 <% end %>
+<table>
+  <thead>									
+    <tr>
+      <% @column_name.each do |name| %>
+        <td>
+          <%= name.titleize %>
+        </td>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <% reject_column_name(report).each do |k,v| %>
+          <td>
+            <%= v %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

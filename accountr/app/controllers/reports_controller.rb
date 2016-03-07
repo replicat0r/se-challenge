@@ -6,6 +6,8 @@ class ReportsController < ApplicationController
 
   def index
   	@report = Report.new
+    @reports = Report.all
+    @column_name = Report.column_names - %w[updated_at created_at id]
   end
 
   def new
