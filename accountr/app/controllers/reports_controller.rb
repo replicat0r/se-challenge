@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   def create
-  	Report.process_file(file_param)
+  	Report.process_file(file_param[:file])
   	redirect_to reports_path
   end
 

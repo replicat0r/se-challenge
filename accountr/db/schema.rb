@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(version: 20160307002413) do
 
   create_table "reports", force: :cascade do |t|
-    t.date     "date"
+    t.string   "date"
     t.string   "category"
     t.string   "employee_name"
     t.string   "employee_address"
     t.string   "expense_description"
-    t.decimal  "pre_tax_amount",      precision: 8, scale: 2
+    t.string   "pre_tax_amount"
     t.string   "tax_name"
-    t.decimal  "tax_amount",          precision: 8, scale: 2
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.string   "tax_amount"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
 end
