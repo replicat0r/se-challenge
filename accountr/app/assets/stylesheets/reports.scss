@@ -1,20 +1,26 @@
 $bgcolor:#3f9edd;
 
+
 .dashboard{
   background:#353742;
-  height:18vh;
+  height:200px;
+  margin-bottom: 2em;
   .header{
     color:white;
     margin:0;
-    padding-top:120px;
+    padding-top:130px;
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
   .uploadnew{
     float:right;
-    
+
   }
+}
+
+.uploader{
+  padding-top:2em;
 }
 
 #toast-container {
@@ -135,4 +141,18 @@ td, th{
   font-size: 0.9rem;
   padding:15px 10px!important;
   text-align: center!important;
+}
+
+.modal{
+  .modal-close{
+    position:absolute;
+    right:20px;
+  }
+  h5{
+    text-align: center;
+  }
+}
+
+table.bordered > tbody > tr {
+    border-bottom: 1px solid #EFEFEF!important;
 }

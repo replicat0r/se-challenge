@@ -1,53 +1,59 @@
-<div class="row dashboard">
-	<div class="container">
-		<h4 class="header">Expense Overview</h4>
-		  <a class="btn-floating btn-large waves-effect waves-light uploadnew red"><i class="material-icons">add</i></a>
+<div class=" dashboard">
+<div class="row">
+  <div class="container">
+      <h4 class="header">Expense Overview</h4>
 
-	</div>
+     <% if @reports.present? %>
+
+
+    <a class="btn-floating btn-large waves-effect waves-light uploadnew red modal-trigger" href="#uploader"> <i class="material-icons">add</i></a>
+
+
+    <% end %>
+
+  </div>
 </div>
 
+</div>
 <div class="container">
-<% if @reports.blank? %>
-   <div class="row">
-	<%= form_for @report do |f| %>
-	<%= f.file_field :file ,class: "inputfile" %>
-	<label for="report_file">
-		<figure>
-			<i class="fa fa-upload"></i>
-		</figure>
-		<span>Choose a file&hellip;</span></label>
-		<div class="col s12">
-			<%= f.submit "Upload File", class:"waves-effect waves-light uploadbtn btn" %>
-		</div>
-		<% end %>
-	</div>
-	<% else %>
-	<div class="row">
-	<div class="col s12">
-	<table class="responsive-table">
-		<thead>
-			<tr>
-				<% @column_name.each do |name| %>
-				<th>
-					<%= name.titleize %>
-				</th>
-				<% end %>
-			</tr>
-		</thead>
-		<tbody>
-			<% @reports.each do |report| %>
-			<tr>
-				<% reject_column_name(report).each do |k,v| %>
-				<td>
-					<%= v %>
-				</td>
-				<% end %>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
-	</div>
-	</div>
-	<% end %>
+  <% if @reports.blank? %>
+              <%= render 'reports/shared/form' %>
+  <% else %>
+    <div class="row">
+      <div class="col s12">
+        <table class="responsive-table highlight bordered">
+          <thead>
+            <tr>
+              <% @column_name.each do |name| %>
+                <th>
+                  <%= name.titleize %>
+                </th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reports.each do |report| %>
+              <tr>
+                <% reject_column_name(report).each do |k,v| %>
+                  <td>
+                    <%= v %>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-	</div>
+  <div id="uploader" class="modal bottom-sheet">
+    <div class="modal-content">
+    <i class="material-icons modal-action modal-close">close</i>
+      <h5>Upload A New File</h5>
+              <%= render 'reports/shared/form' %>
+
+    </div>
+ 
+  </div>

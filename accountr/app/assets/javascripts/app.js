@@ -2,8 +2,10 @@
 
 'use strict';
 
-( function( $, window, document, undefined )
-{
+  $(document).ready(function(){
+
+    $('.modal-trigger').leanModal();
+
 	$( '.inputfile' ).each( function()
 	{
 		var $input	 = $( this ),
@@ -29,4 +31,4 @@
 		.on( 'focus', function(){ $input.addClass( 'has-focus' ); })
 		.on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
 	});
-})( jQuery, window, document );
+})
