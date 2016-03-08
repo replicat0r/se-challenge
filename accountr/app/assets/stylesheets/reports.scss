@@ -1,7 +1,25 @@
 $bgcolor:#3f9edd;
 
+#toast-container {
+  display:block;
+  position: fixed;
+  z-index: 10000;
+
+  top: 3%;
+  right: 3%;
+}
+
+.btn{
+  padding:0;
+}
+
 form{
 	text-align: center;
+  .uploadbtn input{
+    width:100%;
+    height:100%;
+    padding:0 2rem;
+  }
 }
 .inputfile {
   width: 0.1px;
@@ -14,7 +32,7 @@ form{
   	text-align: center;
     max-width: 80%;
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 300;
     text-overflow: ellipsis;
     white-space: nowrap;
     cursor: pointer;
@@ -65,11 +83,30 @@ form{
     &:hover figure {
       background-color: darken($bgcolor,10%);
     }
-    .fa {
+    i {
       color: white;
       font-size: 3em;
       display: inline-block;
-      padding-left: 2px;
+      padding-left: 1px;
     }
   }
+}
+
+
+.centered-axis-xy {
+    position: absolute!important;
+    left: 50%!important;
+    ;
+    top: 50%!important;
+    ;
+    -webkit-transform: translate(-50%, -50%)!important;
+    ;
+    -moz-transform: translate(-50%, -50%)!important;
+    ;
+    -ms-transform: translate(-50%, -50%)!important;
+    ;
+    -o-transform: translate(-50%, -50%)!important;
+    ;
+    transform: translate(-50%, -50%)!important;
+    ;
 }

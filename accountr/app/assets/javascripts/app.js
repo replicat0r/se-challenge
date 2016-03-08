@@ -22,9 +22,9 @@
 				$label.find( 'span' ).html( fileName );
 			else
 				$label.html( labelVal );
+
 		});
 
-		// Firefox bug fix
 		$input
 		.on( 'focus', function(){ $input.addClass( 'has-focus' ); })
 		.on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
