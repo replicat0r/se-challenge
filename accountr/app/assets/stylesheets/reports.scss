@@ -1,5 +1,22 @@
 $bgcolor:#3f9edd;
 
+.dashboard{
+  background:#353742;
+  height:18vh;
+  .header{
+    color:white;
+    margin:0;
+    padding-top:120px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .uploadnew{
+    float:right;
+    
+  }
+}
+
 #toast-container {
   display:block;
   position: fixed;
@@ -109,4 +126,13 @@ form{
     ;
     transform: translate(-50%, -50%)!important;
     ;
+}
+
+th{
+  text-transform: uppercase;
+}
+td, th{
+  font-size: 0.9rem;
+  padding:15px 10px!important;
+  text-align: center!important;
 }

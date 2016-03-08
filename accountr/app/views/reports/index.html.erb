@@ -1,3 +1,12 @@
+<div class="row dashboard">
+	<div class="container">
+		<h4 class="header">Expense Overview</h4>
+		  <a class="btn-floating btn-large waves-effect waves-light uploadnew red"><i class="material-icons">add</i></a>
+
+	</div>
+</div>
+
+<div class="container">
 <% if @reports.blank? %>
    <div class="row">
 	<%= form_for @report do |f| %>
@@ -40,3 +49,5 @@
 	</div>
 	</div>
 	<% end %>
+
+	</div>
