@@ -15,7 +15,7 @@
           <% end %>
         </ul>
       </div>
-      <a class="btn-floating btn-large waves-effect waves-light uploadnew modal-trigger" href="#uploader"> <i class="material-icons">add</i></a>
+      <a class="btn-floating  btn-large waves-effect waves-light uploadnew modal-trigger" href="#uploader"> <i class="material-icons">add</i></a>
       <% end %>
     </div>
   </div>
@@ -28,7 +28,7 @@
     <%@reports_date.each do |k,v| %>
     <div id="<%= k %>" class="col s12">
       <% monthly = v.group_by {|report| report.date.strftime("%B")} %>
-      <div class="col s12">
+      <div class="col s12 row">
         <ul class="tabs">
           <% monthly.sort.each do |k,v| %>
           <li class="tab col s3"><a href="#<%= k %>"><%= k %></a></li>

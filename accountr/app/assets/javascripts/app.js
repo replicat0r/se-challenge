@@ -23,6 +23,7 @@
 				$label.find( 'span' ).html( fileName );
 			else
 				$label.html( labelVal );
+			$('.uploadbtn').removeClass('hide')
 
 		});
 
