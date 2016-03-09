@@ -4,14 +4,14 @@
     <div class="container">
       <h4 class="header">Expense Overview</h4>
       <div class="col s12">
-        <ul class="tabs">
+        <ul class="tabs yeartab">
           <%@reports_date.each do |k,v| %>
-          <li class="tab col s3"><a href="#<%= k %>"><%= k %></a></li>
+          <li class="tab col s3"><a href="#<%= k %>"><%= k %> Report</a></li>
           <% end %>
         </ul>
       </div>
       <% if @reports.present? %>
-      <a class="btn-floating btn-large waves-effect waves-light uploadnew red modal-trigger" href="#uploader"> <i class="material-icons">add</i></a>
+      <a class="btn-floating btn-large waves-effect waves-light uploadnew modal-trigger" href="#uploader"> <i class="material-icons">add</i></a>
       <% end %>
     </div>
   </div>

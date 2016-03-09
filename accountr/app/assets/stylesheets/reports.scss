@@ -1,4 +1,7 @@
 $bgcolor:#3f9edd;
+html,body{
+  font-family: 'Open Sans', sans-serif;
+}
 
 .total_heading,.total_amount{
   text-align: center;
@@ -6,23 +9,47 @@ $bgcolor:#3f9edd;
   font-size: 1em;
   text-transform: uppercase;
 }
-.total_amount{
 
+.tabs {
+  .tab a {
+    font-size: 1rem;
+    font-weight: 300;
+    -webkit-font-smoothing: initial;
+    &:hover {
+      color: #ee6e73;
+    }
+    &.active {
+      font-weight: 400;
+    }
+  }
+  overflow: hidden;
+  background-color: transparent;
+  .indicator {
+    background-color: #f36;
+  }
 }
-.dashboard{
+
+.yeartab li a{
+  color:white!important;
+}
+  .dashboard{
   background:#353742;
   height:200px;
   margin-bottom: 2em;
   .header{
     color:white;
     margin:0;
-    padding-top:130px;
+    padding-top:90px;
+    margin-bottom: 25px;
+    text-align: center;
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
   .uploadnew{
     float:right;
+    background:#f36!important;
+    margin-top:-30px;
 
   }
 }

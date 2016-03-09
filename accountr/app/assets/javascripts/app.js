@@ -1,14 +1,8 @@
 
 
 'use strict';
-var sum = 0
   $(document).ready(function(){
-  $('.monthly').find('.expense_total').each(function(){
-
-  		sum += parseFloat($(this).text())
-  		$(this).find('.totalsum').html('asd')
-  		console.log(sum)
-  })
+  $('.yeartab').tabs('select_tab', $('.yeartab').children().first());
 
   $('.modal-trigger').leanModal();
 
