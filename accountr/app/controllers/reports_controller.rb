@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   def create
     if params[:report].blank?
-      flash[:error] = "File Field Blank"
+      flash[:error] = "You tried to upload an empty file or the file type is invalid!"
     else
 
       Report.process_file(file_param[:file])
