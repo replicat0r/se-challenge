@@ -27,16 +27,16 @@
   <div class="row">
     <%@reports_date.each do |k,v| %>
     <div id="<%= k %>" class="col s12">
-      <% monthly = v.group_by {|report| report.date.strftime("%B")} %>
+      <% monthly = v.group_by {|report| report.date.strftime("%m%b")} %>
       <div class="col s12 row">
         <ul class="tabs">
           <% monthly.sort.each do |k,v| %>
-          <li class="tab col s3"><a href="#<%= k %>"><%= k %></a></li>
+          <li class="tab col s3"><a class="monthtab" href="#<%= k[2..-1]%>"> <%= k[2..-1] %></a></li>
           <% end %>
         </ul>
       </div>
       <% monthly.each do |k,v| %>
-      <div id="<%= k %>" class="col s12 monthly">
+      <div id="<%=k[2..-1]%>" class="col s12 monthly">
         <table class="responsive-table highlight bordered">
           <thead>
             <tr>

@@ -5,6 +5,7 @@
 
   $('.modal-trigger').leanModal();
 
+
 	$( '.inputfile' ).each( function()
 	{
 		var $input	 = $( this ),
