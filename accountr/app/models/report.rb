@@ -8,13 +8,30 @@ class Report < ActiveRecord::Base
    
 
     (2..import_file.last_row).each do |i|
+      
       row = Hash[[header, import_file.row(i)].transpose]
 
       report = new
-      report.attributes = row.to_hash.slice(*report.attribute_names())
+      report.attributes = sanitize_data(row).to_hash.slice(*report.attribute_names())
       
       report.save!
     end
+  end
+
+  def self.sanitize_data(row)
+    new_data = {"date" => format_date(row["date"]), "pre_tax_amount" => format_number(row["pre_tax_amount"])}
+    row.merge(new_data)
+      
+
+  end
+
+  def self.format_number(number)
+    number.to_s.gsub(/,/, '')
+
+  end
+
+  def self.format_date(date)
+    Chronic.parse(date).to_s
   end
 
 
