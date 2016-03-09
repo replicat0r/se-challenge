@@ -1,10 +1,16 @@
 
 
 'use strict';
-
+var sum = 0
   $(document).ready(function(){
+  $('.monthly').find('.expense_total').each(function(){
 
-    $('.modal-trigger').leanModal();
+  		sum += parseFloat($(this).text())
+  		$(this).find('.totalsum').html('asd')
+  		console.log(sum)
+  })
+
+  $('.modal-trigger').leanModal();
 
 	$( '.inputfile' ).each( function()
 	{

@@ -16,7 +16,6 @@
     </div>
   </div>
 </div>
-
 <% end %>
 <div class="container">
   <div class="row">
@@ -25,84 +24,67 @@
       <% monthly = v.group_by {|report| report.date.strftime("%B")} %>
       <div class="col s12">
         <ul class="tabs">
-          <% monthly.each do |k,v| %>
+          <% monthly.sort.each do |k,v| %>
           <li class="tab col s3"><a href="#<%= k %>"><%= k %></a></li>
           <% end %>
         </ul>
       </div>
       <% monthly.each do |k,v| %>
-      <div id="<%= k %>" class="col s12">
-        <table>
+      <div id="<%= k %>" class="col s12 monthly">
+        <table class="responsive-table highlight bordered">
           <thead>
             <tr>
               <th>Employee Name</th>
               <th>Category</th>
               <th>Expense Description</th>
-              <th>Total Amount</th>
+              <th> Amount</th>
             </tr>
           </thead>
+          <% @total = 0 %>
           <% v.each do |v| %>
           <tr>
-          <td>
-          <%= v.employee_name %>
-          </td>
-              <td>
-          <%= v.category %>
-          </td>
-
-              <td>
-          <%= v.expense_description %>
-          </td>
-
-              <td>
-          <%= v.expense_total %>
-          </td>
+            <td>
+              <%= v.employee_name %>
+            </td>
+            <td>
+              <%= v.category %>
+            </td>
+            <td>
+              <%= v.expense_description %>
+            </td>
+            <td class="expense_total">
+              <%= v.expense_total  %>
+              <% @total += v.expense_total %>
+            </td>
           </tr>
+          
+          
+          
           <% end %>
-        </table>
-      </div>
-      <% end %>
-      
-    </table>
-  </div>
-  <% end %>
-  
-</div>
-<% if @reports.blank? %>
-<%= render 'reports/shared/form' %>
-<% else %>
-<div class="row">
-  <div class="col s12">
-    <table class="responsive-table highlight bordered">
-      <thead>
-        <tr>
-          <% @column_name.each do |name| %>
-          <th>
-            <%= name.titleize %>
-          </th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <% @reports.each do |report| %>
-        <tr>
-          <% reject_column_name(report).each do |k,v| %>
-          <td>
-            <%= v %>
-          </td>
-          <% end %>
-        </tr>
+           <tr>
+            
+            <td></td>     
+             <td></td>
+            <td class="total_heading">Total Amount</td>
+            <td class="total_amount"><%= @total %></td> </tr>
+          </table>
+        </div>
         <% end %>
-      </tbody>
-    </table>
+        
+      </table>
+    </div>
+    <% end %>
+    
   </div>
-</div>
-<% end %>
+  <% if @reports.blank? %>
+  <%= render 'reports/shared/form' %>
+  <% else %>
+  <% end %>
 </div>
 <div id="uploader" class="modal bottom-sheet">
-<div class="modal-content">
-  <i class="material-icons modal-action modal-close">close</i>
-  <h5>Upload A New File</h5>
-  <%= render 'reports/shared/form' %>
-</div>
+  <div class="modal-content">
+    <i class="material-icons modal-action modal-close">close</i>
+    <h5>Upload A New File</h5>
+    <%= render 'reports/shared/form' %>
+  </div>
 </div>
