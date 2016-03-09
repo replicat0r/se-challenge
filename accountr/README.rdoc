@@ -1,28 +1,17 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby On Rails App
 
-Things you may want to cover:
+Require rails 4.2.4
 
-* Ruby version
+Install Instructions
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Clone Repo
+- Navigate into the root directory of the app
+- run 'bundle install --without production' on terminal
+- 'Rails S' on command terminal
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+
