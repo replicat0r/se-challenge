@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160307002413) do
     t.decimal  "pre_tax_amount"
     t.string   "tax_name"
     t.decimal  "tax_amount"
+    t.decimal  "expense_total"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end

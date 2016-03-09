@@ -13,6 +13,11 @@ class ReportsController < ApplicationController
   def index
     @report = Report.new
     @reports = Report.all
+    @reports_date = Report.all.group_by do |report|
+      report.date.strftime("%Y")
+    end
+
+    #@reports_date = Report.all(:group => "year(created_at),month(created_at)")
     @column_name = Report.column_names - %w[updated_at created_at id]
   end
   def new

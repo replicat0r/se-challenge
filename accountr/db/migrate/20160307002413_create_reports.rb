@@ -9,6 +9,7 @@ class CreateReports < ActiveRecord::Migration
       t.decimal :pre_tax_amount
       t.string :tax_name
       t.decimal :tax_amount
+      t.decimal :expense_total
 
       t.timestamps null: false
     end

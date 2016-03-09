@@ -19,14 +19,17 @@ class Report < ActiveRecord::Base
   end
 
   def self.sanitize_data(row)
-    new_data = {"date" => format_date(row["date"]), "pre_tax_amount" => format_number(row["pre_tax_amount"])}
+    new_data = {"date" => format_date(row["date"]), "pre_tax_amount" => format_number(row["pre_tax_amount"]),
+                "expense_total" => expense_total(row) }
     row.merge(new_data)
-      
-
   end
 
   def self.format_number(number)
-    number.to_s.gsub(/,/, '')
+    number.to_s.gsub(/,/, '').to_f
+  end
+
+  def self.expense_total(row)
+    format_number(row["pre_tax_amount"]) + format_number(row["tax_amount"])
 
   end
 
