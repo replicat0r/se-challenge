@@ -1,8 +1,13 @@
-<% if @reports_date.present? %>
 <div class=" dashboard">
   <div class="row">
     <div class="container">
+    <% if @reports_date.blank? %>
+      <h4 class="header">Accountr</h4>
+      <h6 class="subheading">A Simple App for your expense reportings!</h6>
+      <% else %>
       <h4 class="header">Expense Overview</h4>
+      <h6 class="subheading">Generated expense report based by year and month</h6>
+
       <div class="col s12">
         <ul class="tabs yeartab">
           <%@reports_date.each do |k,v| %>
@@ -10,14 +15,15 @@
           <% end %>
         </ul>
       </div>
-      <% if @reports.present? %>
       <a class="btn-floating btn-large waves-effect waves-light uploadnew modal-trigger" href="#uploader"> <i class="material-icons">add</i></a>
       <% end %>
     </div>
   </div>
 </div>
-<% end %>
 <div class="container">
+  <% if @reports_date.blank? %>
+  <%= render 'reports/shared/form' %>
+  <% else %>
   <div class="row">
     <%@reports_date.each do |k,v| %>
     <div id="<%= k %>" class="col s12">
@@ -57,14 +63,10 @@
               <% @total += v.expense_total %>
             </td>
           </tr>
-          
-          
-          
           <% end %>
-           <tr>
-            
-            <td></td>     
-             <td></td>
+          <tr>
+            <td></td>
+            <td></td>
             <td class="total_heading">Total Amount</td>
             <td class="total_amount"><%= @total %></td> </tr>
           </table>
@@ -76,9 +78,6 @@
     <% end %>
     
   </div>
-  <% if @reports.blank? %>
-  <%= render 'reports/shared/form' %>
-  <% else %>
   <% end %>
 </div>
 <div id="uploader" class="modal bottom-sheet">

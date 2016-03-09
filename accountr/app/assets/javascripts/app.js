@@ -2,7 +2,6 @@
 
 'use strict';
   $(document).ready(function(){
-  $('.yeartab').tabs('select_tab', $('.yeartab').children().first());
 
   $('.modal-trigger').leanModal();
 
