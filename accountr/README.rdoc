@@ -9,10 +9,16 @@ Install Instructions
 - Clone Repo
 - Navigate into the root directory of the app
 - run 'bundle install --without production' on terminal
+- run 'rake db:migrate'
 - 'Rails S' on command terminal
 
 
 The App accepts a CSV file with given header name, and automatically maps the csv data to the database. An expense report will be generated after the document has been processed. The data will be mapped out, month and year extracted and generated dynamically to display expense report divided into year and then into month. 
+
+
+Live Demo can be found here
+
+https://hidden-coast-20262.herokuapp.com
 
 
 
